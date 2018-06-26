@@ -1,0 +1,30 @@
+<html>
+    {# Load the tag library #}
+    {% load bootstrap3 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+    <body>
+        <table class="fieldWrapper">
+            {% for a in attributes %}
+                <tr><h3>
+                    {{ a }}
+                    {% if field.help_text %}
+                    {% endif %}
+                </h3></tr>
+            {% endfor %}
+        </table>
+        <style>
+            body {
+                background-color: red;
+            }
+        </style>
+        <script>
+            function setDefault
+        </script>
+    </body>
+</html>

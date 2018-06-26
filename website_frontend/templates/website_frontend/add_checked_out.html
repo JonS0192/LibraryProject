@@ -1,0 +1,17 @@
+<form action="/website_frontend/check_out_book/" method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.label_tag }} {{ field }}
+    </div>
+{% endfor %}
+     <script>
+        function pending()
+        {
+            document.getElementById("pending").innerHTML = "pending...";
+            document.body.style.cursor = "wait";
+        }
+    </script>
+    <button type="submit" onclick="pending()">submit</button>
+    <p id="pending"></p>
+</form>

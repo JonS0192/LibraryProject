@@ -1,0 +1,21 @@
+<form action="/website_frontend/get_book/" method="get">
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+     <script>
+        function pending()
+        {
+            document.getElementById("pending").innerHTML = "pending...";
+            document.body.style.cursor = "wait";
+        }
+    </script>
+    <button type="submit" onclick="pending()">submit</button>
+    <p id="pending"></p>
+</form>

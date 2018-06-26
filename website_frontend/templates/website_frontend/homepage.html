@@ -1,0 +1,56 @@
+<HTML>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <head>
+        {% load static %}
+        <style>
+                body
+                {
+                    background-image: url("/static/img/Jon_Library_Logo_big.png");
+                    background-position: center;
+                }
+                .clickable
+                {
+                    background: none;
+                }
+                .buttonContainer
+                {
+                    margin: left;
+                    width: 50%;
+                }
+        </style>
+    </head>
+    <body>
+
+        <div id="logo_container" class="logo_container">
+            <span>
+                <div class="buttonContainer">
+                    <form action="/website_frontend/get_book">
+                        <kbd>
+                            <input class="clickable" type="submit" value="Find a book"/>
+                        </kbd>
+                    </form>
+                    <form action="/website_frontend/check_out_book">
+                        <kbd>
+                            <input class="clickable" type="submit" value="Check out a book"/>
+                        </kbd>
+                    </form>
+                    <form action="/website_frontend/check_in_book">
+                        <kbd>
+                            <input class="clickable" type="submit" value="Check in a book"/>
+                        </kbd>
+                    </form>
+                    <form action="/website_frontend/admin_privileges">
+                        <kbd>
+                            <input class="clickable" type="submit" value="Admin privileges"/>
+                        </kbd>
+                    </form>
+                    <p id="demo"></p>
+                    <p id="demo2"></p>
+                </div>
+            </span>
+        </div>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    </body>
+</HTML>
+
