@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website_frontend',
-    'bootstrap3'
+    'psycopg2',
+    'bootstrap3',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -75,16 +77,23 @@ WSGI_APPLICATION = 'Library2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# Old SQL Server database
+# DATABASES = {
+#     'default': {
+#        'ENGINE': 'sqlserver_ado',
+#        'NAME': 'Library2',
+#        'USER': '',
+#        'PASSWORD': '',
+#        'HOST': '',
+#        'OPTIONS': {
+#            'provider': 'SQLOLEDB',
+#            'use_legacy_date_fields': 'True'}
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'sqlserver_ado',
-        'NAME': 'Library2',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'OPTIONS': {
-            'provider': 'SQLOLEDB',
-            'use_legacy_date_fields': 'True'}
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'Library',
     }
 }
 

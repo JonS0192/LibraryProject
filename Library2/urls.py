@@ -17,8 +17,18 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
+from website_frontend import views
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'books', views.BooksViewSet)
+router.register(r'libraryCards', views.LibraryCardsViewSet)
+router.register(r'checkedOut', views.CheckedOutViewSet)
 
 urlpatterns = [
-    url(r'^website_frontend/', include('website_frontend.urls', namespace='website_frontend')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^website_frontend/', include('website_frontend.urls')),
+    url(r'^admin/', admin.site.urls),
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
